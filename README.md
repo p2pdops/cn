@@ -1,6 +1,6 @@
 # Computer Networks Lab
 
-### 1. Installation of Simulation Tools packet tracer and NS2.
+### [1. Installation of Simulation Tools packet tracer and NS2](./week1/readme.md)
 
 ### [2. Configure the LAN using packet tracer](./week2/readme.md)
 
