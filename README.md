@@ -1,18 +1,20 @@
 # Computer Networks Lab
 
-### 1. Installation of Simulation Tools (packet tracer and NS2).
+[Link text Here](https://link-url-here.org)
 
-### (2. Configure the LAN using packet tracer)[./week2/readme.md]
+### 1. Installation of Simulation Tools packet tracer and NS2.
 
-### (3. Design a sample topology using NS2 Simulation Tool)[./week3/sample.tcl]
+### [2. Configure the LAN using packet tracer](./week2/readme.md)
 
-### (4. Implement CRC and Hamming code for error handling)[./week4]
+### [3. Design a sample topology using NS2 Simulation Tool](./week3/sample.tcl)
 
-### (5. Create a scenario for CSMA/CD using NS2 Simulation Tool)[./week5/csma_cd.tcl]
+### [4. Implement CRC and Hamming code for error handling](./week4)
 
-### (6. Implementation of stop and wait protocol)[./week6]
+### [5. Create a scenario for CSMA/CD using NS2 Simulation Tool](./week5/csma_cd.tcl)
 
-### (7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool)[./week7/gobackn.tcl]
+### [6. Implementation of stop and wait protocol](./week6)
+
+### [7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool](./week7/gobackn.tcl)
 
 ### 8. Implementation of distance vector routing algorithm
 
