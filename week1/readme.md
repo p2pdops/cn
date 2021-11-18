@@ -26,5 +26,6 @@
         set a 1
         set b 2
         set c [expr $a + $b]
-        puts $c # ouput will be 3
+        puts $c
         EOF
+        ns add.tcl # ouput will be 3
