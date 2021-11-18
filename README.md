@@ -1,7 +1,5 @@
 # Computer Networks Lab
 
-[Link text Here](https://link-url-here.org)
-
 ### 1. Installation of Simulation Tools packet tracer and NS2.
 
 ### [2. Configure the LAN using packet tracer](./week2/readme.md)
