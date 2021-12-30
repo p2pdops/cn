@@ -1,7 +1,9 @@
+# Link state routing protocol using ns2
+
 set ns [new Simulator]
 set nf [open out.nam w]
 $ns namtrace-all $nf
-$ns rtproto DV
+$ns rtproto LS 
 proc finish {} {
     global ns nf
     $ns flush-trace
@@ -15,10 +17,10 @@ set n1 [$ns node]
 set n2 [$ns node]
 set n3 [$ns node]
 
-$ns duplex-link $n0 $n1 1Mb 0.01ms DropTail
-$ns duplex-link $n1 $n2 1Mb 0.01ms DropTail
-$ns duplex-link $n2 $n3 1Mb 0.01ms DropTail
-$ns duplex-link $n3 $n0 1Mb 0.01ms DropTail
+$ns duplex-link $n0 $n1 10Mb 10ms DropTail
+$ns duplex-link $n1 $n2 10Mb 10ms DropTail
+$ns duplex-link $n2 $n3 10Mb 10ms DropTail
+$ns duplex-link $n3 $n0 10Mb 10ms DropTail
 
 $ns duplex-link-op $n0 $n1 orient right
 $ns duplex-link-op $n1 $n2 orient down
@@ -31,7 +33,6 @@ $ns attach-agent $n0 $tcp
 
 set sink [new Agent/TCPSink]
 $ns attach-agent $n2 $sink
-
 $ns connect $tcp $sink
 
 set ftp [new Application/FTP]
@@ -40,3 +41,10 @@ $ftp set type_ FTP
 $ftp set packet_size_ 100
 $ftp set rate_ 1Mb
 
+$ns at 1.0 "$ftp start"
+
+$ns rtmodel-at 2.0 down $n1 $n2
+$ns rtmodel-at 3.0 up $n1 $n2
+$ns at 4.0 "$ftp stop"
+$ns at 5.0 "finish"
+$ns run
