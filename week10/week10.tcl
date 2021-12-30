@@ -1,3 +1,5 @@
+# 10. Implement TCP and UDP on different pairs of systems using NS2 Simulation Tool.
+
 set ns [new Simulator]
 
 $ns color 1 Blue

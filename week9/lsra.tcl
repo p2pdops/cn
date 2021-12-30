@@ -1,4 +1,4 @@
-# Link state routing protocol using ns2
+# 9. Implementation of Link state routing algorithm using NS2 Simulation Tool.
 
 set ns [new Simulator]
 set nf [open out.nam w]

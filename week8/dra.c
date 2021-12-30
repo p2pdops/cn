@@ -1,3 +1,5 @@
+// 8. Implementation of distance vector routing algorithm.
+
 #include <stdio.h>
 
 struct node
