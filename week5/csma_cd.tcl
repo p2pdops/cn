@@ -4,7 +4,7 @@ $ns color 2 Red
 set nf [open out.nam w] 
 $ns namtrace-all $nf 
 proc finish {} { 
-    global ns file1 nf 
+    global ns nf 
     $ns flush-trace 
     close $nf 
     exec nam out.nam & 
