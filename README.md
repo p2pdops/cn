@@ -12,9 +12,11 @@
 
 ### [6. Implementation of stop and wait protocol](./week6)
 
-### [7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool](./week7/gobackn.tcl)
+### [7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool](./week7.gobackn.tcl)
 
-### 8. Implementation of distance vector routing algorithm
+### [8.1 Implementation of distance vector routing algorithm (c)](./week8.dvra.c)
+
+### [8.2 Implementation of distance vector routing algorithm (tcl)](./week8.dvra.tcl)
 
 ### 9. Implementation of Link state routing algorithm using NS2 Simulation Tool
 
