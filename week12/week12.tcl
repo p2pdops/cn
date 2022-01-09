@@ -14,7 +14,7 @@ proc finish {} {
     exit 0
 }
 
-create-god 6
+create-god 5
 
 set topo [new Topography]
 $topo load_flatgrid 500 400
