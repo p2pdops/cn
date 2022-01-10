@@ -10,9 +10,9 @@
 
 ### [5. Create a scenario for CSMA/CD using NS2 Simulation Tool](./week5.csma_cd.tcl)
 
-### 6. Implementation of stop and wait protocol [c program](./week6.stopnwait.c) - [Ns](./week6.stopnwait.tcl)
+### 6. Implementation of stop and wait protocol [c program](./week6.stopnwait.c) - [NS Program](./week6.stopnwait.tcl)
 
-### 7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool [tcl](./week7.gobackn.tcl) - [c program](./week7.gobackn.c)
+### 7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool [NS Program](./week7.gobackn.tcl) - [c program](./week7.gobackn.c)
 
 ### 8.1 Implementation of Distance Vector Routing algorithm [c program](./week8.dvra.c) - [NS program](./week8.dvra.tcl)
 
