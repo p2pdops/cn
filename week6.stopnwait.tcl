@@ -1,10 +1,9 @@
 set ns [new Simulator]
-$ns color 1 Blue
-# set nam output file
 set nf [open out.nam w]
 $ns namtrace-all $nf
 
-# destructor
+$ns color 1 Blue
+
 proc finish {} {
 	global ns nf
 	$ns flush-trace
@@ -13,29 +12,28 @@ proc finish {} {
 	exit 0
 }
 
-# create two new nodes and create labels for them
+
 set n0 [$ns node]
 set n1 [$ns node]
-$ns at 0.0 "$n0 label \" Sender \" "
+$ns at 0.0 "$n0 label \"Sender\" "
 $ns at 0.0 "$n1 label \"Receiver\" "
 
-# set up a new duplex link
 $ns duplex-link $n0 $n1 1Mb 200ms DropTail
 $ns duplex-link-op $n0 $n1 orient right
 
-# create a new TCP agent
 set tcp [new Agent/TCP]
-# attach the agent to first node
+set tcpsink [new Agent/TCPSink]
 $ns attach-agent $n0 $tcp
+$ns attach-agent $n1 $tcpsink
+$ns connect $tcp $tcpsink
+
 $tcp set fid_ 1
 $tcp set window_ 1
 $tcp set maxcwnd_ 1
+
 $ns add-agent-trace $tcp tcp
 $ns monitor-agent-trace $tcp
-set tcpsink [new Agent/TCPSink]
-$ns attach-agent $n1 $tcpsink
 
-$ns connect $tcp $tcpsink
 set ftp [new Application/FTP]
 $ftp attach-agent $tcp
 
