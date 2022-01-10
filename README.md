@@ -6,21 +6,19 @@
 
 ### 3. Design a sample topology using NS2 Simulation Tool : [Mesh](./week3.mesh.tcl) - [Star](./week3.star.tcl) - [Ring](./week3.ring.tcl) - [Bus](./week3.bus.tcl)
 
-### 4. Implement CRC and Hamming code for error handling: [CRC](./week4.crc.c) - [Hamming](./week4.hamming.c)
+### 4. Implement CRC and Hamming code for error handling: [CRC](./week4.crc.c) - [Hamming](./week4.hamming_code.c)
 
-### [5. Create a scenario for CSMA/CD using NS2 Simulation Tool](./week5/csma_cd.tcl)
+### [5. Create a scenario for CSMA/CD using NS2 Simulation Tool](./week5.csma_cd.tcl)
 
 ### [6. Implementation of stop and wait protocol](./week6)
 
-### [7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool](./week7.gobackn.tcl)
+### 7. Implementation of goback-N protocol and selective repeat protocol using NS2 Simulation Tool [tcl](./week7.gobackn.tcl) - [c program](./week7.gobackn.c)
 
-### [8.1 Implementation of distance vector routing algorithm (c)](./week8.dvra.c)
+### 8.1 Implementation of Distance Vector Routing algorithm [C program](./week8.dvra.c) - [NS program](./week8.dvra.tcl)
 
-### [8.2 Implementation of distance vector routing algorithm (tcl)](./week8.dvra.tcl)
+### 9. Implementation of Link state routing algorithm [C program](./week9.lsra.c) - [NS program](./week9.lsra.tcl)
 
-### 9. Implementation of Link state routing algorithm using NS2 Simulation Tool
-
-### 10. Implement TCP and UDP on different pairs of systems using NS2 Simulation Tool
+### 10. [Implement TCP and UDP on different pairs of systems using NS2 Simulation Tool](./week10.tcp_udp.tcl)
 
 ### 11. Configuring any two application layer protocols using packet tracer
 

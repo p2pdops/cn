@@ -1,45 +1,79 @@
-# 7. Implementation of goback-N protocol
+#send packets one by one
 set ns [new Simulator]
-set nf [open out.nam w]
-$ns namtrace-all $nf
-
-proc finish {} {
-    global ns
-    $ns flush-trace
-    puts "running nam..."
-    exec nam out.nam &
-    exit 0
-}
-
 set n0 [$ns node]
 set n1 [$ns node]
 set n2 [$ns node]
 set n3 [$ns node]
+set n4 [$ns node]
+set n5 [$ns node]
 
-$n0 label Sender
-$n1 label Receiver
-$n0 color red
-$n1 color blue
+$n0 color "purple"
+$n1 color "purple"
+$n2 color "violet"
+$n3 color "violet"
+$n4 color "chocolate"
+$n5 color "chocolate"
 
-$ns duplex-link $n0 $n2 0.2Mb 200ms DropTail
-$ns duplex-link $n2 $n3 0.2Mb 200ms DropTail
-$ns duplex-link $n3 $n1 0.2Mb 200ms DropTail
+$n0 shape box ;
+$n1 shape box ;
+$n2 shape box ;
+$n3 shape box ;
+$n4 shape box ;
+$n5 shape box ;
+
+$ns at 0.0 "$n0 label SYS0"
+$ns at 0.0 "$n1 label SYS1"
+$ns at 0.0 "$n2 label SYS2"
+$ns at 0.0 "$n3 label SYS3"
+$ns at 0.0 "$n4 label SYS4"
+$ns at 0.0 "$n5 label SYS5"
+
+set nf [open goback.nam w]
+$ns namtrace-all $nf
+set f [open goback.tr w]
+$ns trace-all $f
+
+$ns duplex-link $n0 $n2 1Mb 20ms DropTail
+$ns duplex-link $n1 $n2 1Mb 20ms DropTail
+$ns duplex-link $n2 $n3 1Mb 20ms DropTail
+$ns duplex-link $n3 $n4 1Mb 20ms DropTail
+$ns duplex-link $n3 $n5 1Mb 20ms DropTail
+
+$ns duplex-link-op $n0 $n2 orient right-down
+$ns duplex-link-op $n1 $n2 orient right-up
+$ns duplex-link-op $n2 $n3 orient right
+$ns duplex-link-op $n3 $n4 orient right-up
+$ns duplex-link-op $n3 $n5 orient right-down
+$ns queue-limit $n0 $n2 5
+
+Agent/TCP set_nam_tracevar_true
 
 set tcp [new Agent/TCP]
-$tcp set windowInit_ 2
-$tcp set maxcwnd_ 2
-$ns attach-agent $n0 $tcp
-
 set sink [new Agent/TCPSink]
-$ns attach-agent $n1 $sink
+$ns attach-agent $n1 $tcp
+$ns attach-agent $n4 $sink
 $ns connect $tcp $sink
-$ns rtmodel-at 1.80 down $n2 $n3
-$ns rtmodel-at 1.91 up $n2 $n3
+$tcp set fid 1
 
 set ftp [new Application/FTP]
 $ftp attach-agent $tcp
 
-$ns at 0.1 "$ftp start"
-$ns at 10.68 "$ftp stop"
-$ns at 11.0 "finish"
+$ns at 0.05 "$ftp start"
+$ns at 0.06 "$tcp set windowlnit 6"
+$ns at 0.06 "$tcp set maxcwnd 6"
+$ns at 0.25 "$ns queue-limit $n3 $n4 0"
+$ns at 0.26 "$ns queue-limit $n3 $n4 10"
+$ns at 0.305 "$tcp set windowlnit 4"
+$ns at 0.305 "$tcp set maxcwnd 4"
+$ns at 0.368 "$ns detach-agent $n1 $tcp ; $ns detach-agent $n4 $sink"
+$ns at 1.5 "finish"
+
+proc finish {} {
+    global ns nf
+    $ns flush-trace
+    close $nf
+    exec nam goback.nam &
+    exit 0
+}
+
 $ns run
