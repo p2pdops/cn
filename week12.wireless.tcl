@@ -68,8 +68,10 @@ $ns attach-agent $n(0) $sink0
 $ns attach-agent $n(2) $sink1
 $ns connect $udp0 $sink0 
 $ns connect $udp1 $sink1 
+
 $cbr0 attach-agent $udp0 
 $cbr1 attach-agent $udp1 
+
 $ns at 0.5 "$cbr0 start"
 $ns at 0.5 "$cbr1 start"
 $ns at 3.0 "$cbr0 stop"
